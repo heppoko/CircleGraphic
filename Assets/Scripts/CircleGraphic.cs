@@ -241,6 +241,32 @@ namespace HeppokoUtil
         #endregion
 
         /// <summary>
+        /// In case that CanvasRenderer doesn't exist. (2020.1 or later?)
+        /// </summary>
+        protected override void Reset()
+        {
+            if (gameObject.GetComponent<CanvasRenderer>() == null)
+            {
+                gameObject.AddComponent<CanvasRenderer>();
+            }
+
+            base.Reset();
+        }
+
+        /// <summary>
+        /// In case that CanvasRenderer doesn't exist. (2020.1 or later?)
+        /// </summary>
+        protected override void Awake()
+        {
+            if (gameObject.GetComponent<CanvasRenderer>() == null)
+            {
+                gameObject.AddComponent<CanvasRenderer>();
+            }
+
+            base.Awake();
+        }
+
+        /// <summary>
         /// Show circle with specified visible rate.
         /// </summary>
         /// <param name="rate">rate of visible circle. Range from 0.0f to 1.0f.</param>
